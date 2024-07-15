@@ -8,6 +8,7 @@ body {
     font-family: 'Poppins', sans-serif;
     height: 100vh;
     display: flex;
+    flex-direction: column;
 }
 
 .col {
@@ -16,6 +17,7 @@ body {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    padding: 20px; /* Add some padding for smaller screens */
 }
 
 .col h2 {
@@ -44,4 +46,34 @@ body {
 .col button:hover {
     background: rgba(0, 0, 0, 0.1);
     cursor: pointer;
+}
+
+/* Media Queries for smaller screens */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        height: auto; /* Allow the height to adjust */
+    }
+
+    .col h2 {
+        font-size: 1.2rem; /* Reduce font size */
+        padding: 8px; /* Adjust padding */
+    }
+
+    .col button {
+        font-size: 1.2rem; /* Reduce font size */
+        padding: 8px; /* Adjust padding */
+    }
+}
+
+@media (max-width: 480px) {
+    .col h2 {
+        font-size: 1rem; /* Further reduce font size */
+        padding: 6px; /* Further adjust padding */
+    }
+
+    .col button {
+        font-size: 1rem; /* Further reduce font size */
+        padding: 6px; /* Further adjust padding */
+    }
 }
