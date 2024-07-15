@@ -1,12 +1,14 @@
 const cols = document.querySelectorAll('.col')
 
+// Event listener for keyboard
 document.addEventListener('keydown', (event) => {
-    event.preventDefault()
     if (event.code.toLowerCase() === 'space') {
+        event.preventDefault()
         setRandomColors()
     }
 })
 
+// Event listener for mouse click
 document.addEventListener('click', (event) => {
     const type = event.target.dataset.type
 
@@ -23,12 +25,14 @@ document.addEventListener('click', (event) => {
     }
 })
 
-function generateRandomColor() {
-    // RGB
-    // #FF0000
-    // #00FF00
-    // #0000FF
+// Event listener for touch on mobile devices
+document.addEventListener('touchstart', (event) => {
+    if (!event.target.closest('.col button')) {
+        setRandomColors()
+    }
+})
 
+function generateRandomColor() {
     const hexCodes = '0123456789ABCDEF'
     let color = ''
     for (let i = 0; i < 6; i++) {
