@@ -19,11 +19,11 @@ document.addEventListener('click', (event) => {
         node.classList.toggle('fa-lock-open')
         node.classList.toggle('fa-lock')
     } else if (type === 'copy') {
-        copyToClickboard(event.target.textContent)
+        copyToClipboard(event.target.textContent)
     }
 })
 
-function gerenerateRandomColor() {
+function generateRandomColor() {
     // RGB
     // #FF0000
     // #00FF00
@@ -37,7 +37,7 @@ function gerenerateRandomColor() {
     return '#' + color
 }
 
-function copyToClickboard(text) {
+function copyToClipboard(text) {
     return navigator.clipboard.writeText(text)
 }
 
@@ -74,9 +74,9 @@ function setRandomColors(isInitial) {
     updateColorsHash(colors)
 }
 
-function setTextColor(text, color) {
+function setTextColor(element, color) {
     const luminance = chroma(color).luminance()
-    text.style.color = luminance > 0.5 ? 'black' : 'white'
+    element.style.color = luminance > 0.5 ? 'black' : 'white'
 }
 
 function updateColorsHash(colors = []) {

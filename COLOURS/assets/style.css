@@ -8,16 +8,28 @@ body {
     font-family: 'Poppins', sans-serif;
     height: 100vh;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #282c34; /* Background color for better visibility */
+}
+
+.container {
+    display: flex; /* Horizontal layout for the color columns */
+    flex-direction: row; /* Align columns horizontally */
+    gap: 10px; /* Space between columns */
+    flex-wrap: wrap; /* Allow wrapping of columns */
 }
 
 .col {
-    flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    padding: 20px; /* Add some padding for smaller screens */
+    width: 100px; /* Fixed width for columns */
+    height: 100px; /* Fixed height for columns */
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 10px; /* Padding for inner content */
 }
 
 .col h2 {
@@ -25,55 +37,63 @@ body {
     color: #fff;
     border-radius: 10px;
     transition: background 0.3s;
+    font-size: 1.2rem; /* Adjust font size for better visibility */
 }
 
 .col h2:hover {
     background: rgba(0, 0, 0, 0.1);
-    cursor: pointer;
 }
 
 .col button {
     outline: none;
     border: none;
     background: none;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: #fff;
-    padding: 10px;
+    padding: 8px;
     border-radius: 10px;
     transition: background 0.3s;
 }
 
 .col button:hover {
     background: rgba(0, 0, 0, 0.1);
-    cursor: pointer;
 }
 
 /* Media Queries for smaller screens */
 @media (max-width: 768px) {
-    body {
-        flex-direction: column;
-        height: auto; /* Allow the height to adjust */
+    .container {
+        gap: 5px; /* Reduce gap for smaller screens */
+    }
+
+    .col {
+        width: 80px; /* Reduce width for smaller screens */
+        height: 80px; /* Reduce height for smaller screens */
     }
 
     .col h2 {
-        font-size: 1.2rem; /* Reduce font size */
-        padding: 8px; /* Adjust padding */
+        font-size: 1rem; /* Reduce font size */
     }
 
     .col button {
-        font-size: 1.2rem; /* Reduce font size */
-        padding: 8px; /* Adjust padding */
+        font-size: 1rem; /* Reduce button font size */
     }
 }
 
 @media (max-width: 480px) {
+    .container {
+        gap: 2px; /* Further reduce gap for very small screens */
+    }
+
+    .col {
+        width: 60px; /* Further reduce width for very small screens */
+        height: 60px; /* Further reduce height for very small screens */
+    }
+
     .col h2 {
-        font-size: 1rem; /* Further reduce font size */
-        padding: 6px; /* Further adjust padding */
+        font-size: 0.9rem; /* Further reduce font size */
     }
 
     .col button {
-        font-size: 1rem; /* Further reduce font size */
-        padding: 6px; /* Further adjust padding */
+        font-size: 0.9rem; /* Further reduce button font size */
     }
 }
